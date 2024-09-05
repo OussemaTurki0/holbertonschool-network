@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# show all the  IP IPv4 active.
+# Script to show all active IPv4 addresses on the machine
 
-# use `ifconfig` listinterface  `grep` for exterin IPv4
+# Display all active IPv4 addresses
 ifconfig | grep 'inet ' | awk '{print $2}'
