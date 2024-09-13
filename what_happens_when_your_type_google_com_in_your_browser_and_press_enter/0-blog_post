@@ -1,0 +1,32 @@
+What Happens When You Type https://www.google.com in Your Browser and Press Enter?
+When you type a URL in your browser and hit enter, an elaborate process unfolds behind the scenes to display the website. Let's break it down step by step, focusing on key concepts like DNS, TCP/IP, HTTPS, and more.
+
+1. DNS Request:
+The first step is resolving the domain name (www.google.com) into an IP address. Your browser checks its cache and your operating system’s DNS cache. If the IP isn't found, the request is sent to a DNS resolver, which queries other DNS servers, starting with root servers, until it finds the IP address for google.com. This process is fast, often returning the result in milliseconds.
+
+2. TCP/IP Handshake:
+Once the IP address of Google's server is obtained, the browser initiates a connection using the Transmission Control Protocol (TCP). It sends a request to open a connection through a three-way handshake:
+
+SYN: Your computer sends a synchronization request to Google’s server.
+SYN-ACK: The server acknowledges the request and responds.
+ACK: Your computer acknowledges, and the connection is established.
+3. Firewall:
+Before reaching Google’s server, your request goes through a firewall. Firewalls act as a security layer, ensuring that only legitimate traffic is allowed through. Both your device and Google have firewalls to block any malicious traffic.
+
+4. HTTPS/SSL Encryption:
+Since the URL starts with https://, it signifies that the communication will be encrypted using SSL/TLS. Your browser and the server exchange encryption keys, allowing all data to be sent securely. SSL certificates authenticate the server, ensuring that you're actually communicating with Google and not an impostor.
+
+5. Load Balancer:
+Once your encrypted request reaches Google’s infrastructure, it passes through a load balancer. A load balancer distributes incoming traffic across multiple servers, ensuring no single server gets overwhelmed. This improves efficiency and reduces latency.
+
+6. Web Server:
+The load balancer routes your request to one of Google’s web servers. Web servers handle HTTP requests, serving static resources like HTML, CSS, JavaScript, and images. The web server begins preparing the response to your browser.
+
+7. Application Server:
+In cases where dynamic content (like search results) is needed, the web server forwards the request to an application server. This server runs code, interacts with the database, and processes the logic required to generate a response based on user input.
+
+8. Database:
+If necessary, the application server queries a database to fetch or update information. For example, when you search on Google, the application server will query the database containing indexed websites. The result is compiled into a web page and sent back through the web server.
+
+9. Response:
+Finally, the response (the HTML page) is sent back through the load balancer, encrypted again via SSL, and travels back through the internet to your browser. Your browser then renders the page, and you see Google's search homepage.

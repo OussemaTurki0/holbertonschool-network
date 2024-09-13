@@ -1,0 +1,51 @@
+What Happens When You Type https://www.google.com in Your Browser and Press Enter
+
+When you press "Enter" after typing a URL like "https://www.google.com" into your web browser, a series of processes unfold. Below, I’ll explain the key steps involved in handling this request, including topics like:
+
+DNS (Domain Name System)
+TCP/IP
+Firewall
+HTTPS/SSL
+Load Balancer
+Web Server
+Application Server
+Database
+1. DNS (Domain Name System)
+The Domain Name System (DNS) translates human-friendly domain names (like www.google.com) into numerical IP addresses that computers use to identify each other on the network. DNS can be thought of as the Internet's phone book, mapping names to addresses.
+
+When you enter a URL, your browser first checks its local cache to see if it already knows the corresponding IP address. If not, it queries the DNS server, which looks up the IP address (e.g., 172.217.17.36 for Google). Once found, the browser can send a request to the correct server.
+
+2. TCP/IP (Transmission Control Protocol/Internet Protocol)
+After the DNS has resolved the IP address, your browser initiates a TCP connection. TCP is a reliable, connection-oriented protocol responsible for making sure data is transmitted accurately between client and server. The TCP handshake consists of three steps: SYN (request to start a connection), SYN-ACK (acknowledgment from the server), and ACK (confirmation from the client).
+
+IP (Internet Protocol) is in charge of routing the data between the client and the server. Each packet of data contains both the source and destination IP addresses, allowing it to travel across networks until it reaches its destination.
+
+3. Firewall
+Firewalls monitor incoming and outgoing network traffic and determine whether to allow or block specific traffic based on pre-established security rules. This security layer ensures that harmful requests are filtered out before they reach the server.
+
+When your request is sent to the server, it must pass through a firewall that determines whether the request is valid. Firewalls inspect packets by looking at things like the source and destination IP addresses and the type of protocol being used. If the request meets the security criteria, it proceeds to the next step.
+
+4. HTTPS/SSL
+HTTPS (Hypertext Transfer Protocol Secure) is the secure version of HTTP, the protocol for transmitting data over the web. When you visit a website over HTTPS, data is encrypted using SSL (Secure Sockets Layer) or its successor, TLS (Transport Layer Security).
+
+SSL/TLS creates an encrypted link between your browser and the server. This ensures that sensitive data, like passwords or payment details, cannot be intercepted by malicious third parties. When you type https://www.google.com, your browser and Google’s server engage in an SSL handshake to establish this secure connection before transferring any data.
+
+5. Load Balancer
+A load balancer helps distribute incoming requests across multiple servers to ensure no single server is overwhelmed, preventing downtime and improving performance. After the firewall lets your request through, it reaches the load balancer, which intelligently directs your request to an available server based on current server load, location, or other criteria.
+
+The load balancer acts as a reverse proxy, improving resource usage and speeding up response times by making sure traffic is efficiently distributed across a pool of servers.
+
+6. Web Server
+The web server’s role is to handle HTTP requests and serve static content (like HTML, CSS, JavaScript, images, etc.) to the client. Popular web servers include Apache, Nginx, and Microsoft’s IIS.
+
+Once your request reaches the web server, it will interpret the HTTP request. If the request is for a static page, the server directly sends the requested file back to your browser. However, for more dynamic content, the web server might need to pass the request to an application server for further processing.
+
+7. Application Server
+The application server handles dynamic content generation. This server processes more complex logic, such as user authentication, database queries, and other backend operations. It communicates with the web server, typically using APIs or similar interfaces.
+
+For example, when you log into your Google account, the application server will check your credentials and retrieve relevant information from the database before generating the personalized web page.
+
+8. Database
+In cases where dynamic data is required (e.g., user-specific content), the application server interacts with a database. A database stores and retrieves structured data like user profiles, search results, or even the contents of emails. This data is often stored in relational databases like MySQL or PostgreSQL, though NoSQL databases like MongoDB are also common.
+
+After retrieving the necessary data, the application server assembles the final response (e.g., your personalized Google homepage) and sends it back to the web server, which then forwards it to your browser.
